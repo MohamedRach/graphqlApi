@@ -10,6 +10,9 @@ app.use('/graphql', graphqlHTTP({
     schema,
     graphiql:true
 }));
+app.get('/', (req, res) => {
+    res.redirect('/graphql');
+})
 mongoose.connect(dbURI)
     .then((result) => {
         console.log("success");
